@@ -102,4 +102,12 @@ public class SkateboardPhysics : MonoBehaviour
             Debug.Log("Collided");
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("CranRaspberry"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
