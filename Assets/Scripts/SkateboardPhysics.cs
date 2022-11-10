@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class SkateboardPhysics : MonoBehaviour
 {
+    public GameObject thirdPersonCamera;
     Rigidbody rb;
     public float jump = 2000;
     public float speed;
-    public Vector3 movement;
+    public Vector3 startRotation;
+    public Vector3 endRotation;
     bool canJump;
-
+    public float desiredDuration;
+    float elapsedTime;
     float hInput, vInput;
     bool isBreaking;
     float steeringAngle;
@@ -38,18 +41,18 @@ public class SkateboardPhysics : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
+        //    elapsedTime += Time.deltaTime;
+        //float percentageComplete = elapsedTime / desiredDuration;
             if (canJump == true)                        //to make sure that the skateboard doesnt jump mid air
             {
                 rb.AddForce(transform.up * jump);
-                //Quaternion startRotate = gameObject.transform.rotation;
-                //Quaternion endRotate = Quaternion.Euler(180, gameObject.transform.rotation.y, gameObject.transform.rotation.z);
-                //gameObject.transform.rotation = Quaternion.Lerp(startRotate, endRotate, Time.deltaTime);
+                //transform.rotation = Quaternion.Slerp(Quaternion.Euler(startRotation), Quaternion.Euler(endRotation), percentageComplete);
                 Debug.Log("forcing");
                 canJump = false;
             }
         }
     }
-
+   
     private void FixedUpdate()
     {
         GetInput();
@@ -90,8 +93,8 @@ public class SkateboardPhysics : MonoBehaviour
 
     private void GetInput()
     {
-        hInput = -Input.GetAxis("Horizontal");
-        vInput = Input.GetAxis("Vertical");
+        hInput = Input.GetAxis("Horizontal");
+        vInput = -Input.GetAxis("Vertical");
     }
 
     private void OnCollisionEnter(Collision collision)
