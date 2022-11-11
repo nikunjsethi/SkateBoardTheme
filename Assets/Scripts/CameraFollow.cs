@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     private Vector3 cameraPosition;
     private Quaternion initialOffsetRotation;
     private Quaternion cameraRotation;
-    // Start is called before the first frame update
+
     void Start()
     {
         initialOffset = transform.position - targetObject.position;
@@ -21,8 +21,5 @@ public class CameraFollow : MonoBehaviour
     {
         cameraPosition = targetObject.position + initialOffset;
         transform.position = cameraPosition;
-        //transform.rotation = Quaternion.Euler(26, 90 - targetObject.transform.rotation.y, 0);
-        //cameraRotation=transform.rotation*initialOffsetRotation;
-        //transform.rotation = cameraRotation;
     }
 }

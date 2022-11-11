@@ -7,6 +7,8 @@ public class SkateboardPhysics : MonoBehaviour
 {
     Rigidbody rb;
     public float jump = 2000;
+    public Vector3 normalJump = new Vector3(0, 20, 0);
+    public Vector3 tiltedJump;
     public float speed;
     public Vector3 startRotation;
     public Vector3 endRotation;
@@ -38,6 +40,7 @@ public class SkateboardPhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //SkateBoardCheck();
         if (Input.GetKeyDown(KeyCode.V))
         {
         //    elapsedTime += Time.deltaTime;
@@ -45,8 +48,26 @@ public class SkateboardPhysics : MonoBehaviour
             if (canJump == true)                        //to make sure that the skateboard doesnt jump mid air
             {
                 rb.AddForce(transform.up * jump);
-                //transform.rotation = Quaternion.Slerp(Quaternion.Euler(startRotation), Quaternion.Euler(endRotation), percentageComplete);
-                Debug.Log("forcing");
+                canJump = false;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            if (canJump == true)
+            {
+                rb.AddForce(transform.up * jump);
+                gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - 30, 0);
+                canJump = false;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (canJump == true)
+            {
+                rb.AddForce(transform.up * jump);
+                gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 30, 0);
                 canJump = false;
             }
         }
@@ -110,6 +131,14 @@ public class SkateboardPhysics : MonoBehaviour
         if(other.CompareTag("CranRaspberry"))
         {
             Destroy(other.gameObject);
+        }
+    }
+
+    void SkateBoardCheck()
+    {
+        if(gameObject.transform.eulerAngles.x>40 || gameObject.transform.eulerAngles.x < -40 || gameObject.transform.eulerAngles.z > 40 || gameObject.transform.eulerAngles.z < -40)
+        {
+            Debug.Log("Its working, time to fucking restart");
         }
     }
 }
