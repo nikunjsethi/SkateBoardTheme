@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SkateboardPhysics : MonoBehaviour
 {
-    public GameObject thirdPersonCamera;
     Rigidbody rb;
     public float jump = 2000;
     public float speed;

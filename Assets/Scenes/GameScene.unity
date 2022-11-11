@@ -3126,14 +3126,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298435027}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.22226004, y: 0.197, z: 1.77}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 4.790974, y: 0.197, z: 1.850402}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!43 &322490913
 Mesh:
   m_ObjectHideFlags: 0
@@ -6324,8 +6324,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.16338319, y: 0.68797237, z: -0.16338322, w: 0.68797237}
-  m_LocalPosition: {x: -0.97274065, y: 0.39193305, z: 0.46803442}
-  m_LocalScale: {x: 1.0000002, y: 0.99999994, z: 1.0000002}
+  m_LocalPosition: {x: -0.97274077, y: 0.39193305, z: 0.46803442}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -12267,9 +12267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9622379647049044cab9b9957613aabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thirdPersonCamera: {fileID: 0}
   jump: 10000
-  speed: 2
+  speed: 20
   startRotation: {x: 0, y: -90, z: 0}
   endRotation: {x: 0, y: -90, z: 270}
   desiredDuration: 0.5
@@ -12927,7 +12926,7 @@ MonoBehaviour:
   m_MeshFormatVersion: 2
   m_Faces:
   - m_Indexes: 000000000100000002000000010000000300000002000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -12944,7 +12943,7 @@ MonoBehaviour:
     elementGroup: -1
     m_TextureGroup: -1
   - m_Indexes: 040000000500000006000000050000000700000006000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -12961,7 +12960,7 @@ MonoBehaviour:
     elementGroup: -1
     m_TextureGroup: -1
   - m_Indexes: 08000000090000000a0000000b000000080000000a000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -12978,7 +12977,7 @@ MonoBehaviour:
     elementGroup: 0
     m_TextureGroup: 1
   - m_Indexes: 0c0000000d0000000e0000000f0000000c0000000e000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -12995,7 +12994,7 @@ MonoBehaviour:
     elementGroup: 0
     m_TextureGroup: 1
   - m_Indexes: 130000001100000012000000130000001000000011000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -13012,7 +13011,7 @@ MonoBehaviour:
     elementGroup: 0
     m_TextureGroup: 2
   - m_Indexes: 170000001500000016000000170000001400000015000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -13029,7 +13028,7 @@ MonoBehaviour:
     elementGroup: 0
     m_TextureGroup: 2
   - m_Indexes: 1a0000001b00000018000000190000001a00000018000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -13046,7 +13045,7 @@ MonoBehaviour:
     elementGroup: 0
     m_TextureGroup: 3
   - m_Indexes: 1e0000001f0000001c0000001d0000001e0000001c000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -13063,7 +13062,7 @@ MonoBehaviour:
     elementGroup: 0
     m_TextureGroup: 3
   - m_Indexes: 220000002300000020000000220000002000000021000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -13080,7 +13079,7 @@ MonoBehaviour:
     elementGroup: 0
     m_TextureGroup: 4
   - m_Indexes: 270000002500000026000000270000002400000025000000
-    m_SmoothingGroup: 1
+    m_SmoothingGroup: 2
     m_Uv:
       m_UseWorldSpace: 0
       m_FlipU: 0
@@ -13244,7 +13243,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 1014249163}
-  m_VersionIndex: 462
+  m_VersionIndex: 471
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
