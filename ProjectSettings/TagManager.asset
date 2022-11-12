@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Surface
   - CranRaspberry
+  - HoverBoard
   layers:
   - Default
   - TransparentFX

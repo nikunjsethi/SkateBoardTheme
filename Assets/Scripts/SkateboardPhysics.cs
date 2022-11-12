@@ -7,8 +7,6 @@ public class SkateboardPhysics : MonoBehaviour
 {
     Rigidbody rb;
     public float jump = 2000;
-    public Vector3 normalJump = new Vector3(0, 20, 0);
-    public Vector3 tiltedJump;
     public float speed;
     public Vector3 startRotation;
     public Vector3 endRotation;
@@ -18,7 +16,7 @@ public class SkateboardPhysics : MonoBehaviour
     float hInput, vInput;
     bool isBreaking;
     float steeringAngle;
-
+    Vector2 movement;
     [SerializeField] private float maxSteeringAngle;
 
     [SerializeField] private WheelCollider flWheelCollider;
@@ -107,14 +105,16 @@ public class SkateboardPhysics : MonoBehaviour
 
     private void HandleMotor()
     {
-        flWheelCollider.motorTorque = vInput * speed;
-        frWheelCollider.motorTorque = vInput * speed;
+        rlWheelCollider.motorTorque = vInput * speed;
+        rrWheelCollider.motorTorque = vInput * speed;
     }
 
     private void GetInput()
     {
         hInput = Input.GetAxis("Horizontal");
         vInput = -Input.GetAxis("Vertical");
+
+        //movement = new Vector2(hInput, vInput);
     }
 
     private void OnCollisionEnter(Collision collision)
