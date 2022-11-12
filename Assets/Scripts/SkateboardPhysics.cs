@@ -8,13 +8,8 @@ public class SkateboardPhysics : MonoBehaviour
     Rigidbody rb;
     public float jump = 2000;
     public float speed;
-    public Vector3 startRotation;
-    public Vector3 endRotation;
     bool canJump;
-    public float desiredDuration;
-    float elapsedTime;
     float hInput, vInput;
-    bool isBreaking;
     float steeringAngle;
     Vector2 movement;
     [SerializeField] private float maxSteeringAngle;
@@ -29,6 +24,8 @@ public class SkateboardPhysics : MonoBehaviour
     [SerializeField] private Transform rlWheelTransform;
     [SerializeField] private Transform rrWheelTransform;
 
+
+    public HealthBar health;
     // Start is called before the first frame update
     void Start()
     {
@@ -131,6 +128,7 @@ public class SkateboardPhysics : MonoBehaviour
         if(other.CompareTag("CranRaspberry"))
         {
             Destroy(other.gameObject);
+            health.healthBar.fillAmount += 0.1f;
         }
     }
 

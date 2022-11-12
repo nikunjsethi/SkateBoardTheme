@@ -9,17 +9,26 @@ public class CameraFollow : MonoBehaviour
     private Vector3 cameraPosition;
     private Quaternion initialOffsetRotation;
     private Quaternion cameraRotation;
-
+    public bool lookAtTarget = false;
     void Start()
     {
         initialOffset = transform.position - targetObject.position;
-        //initialOffsetRotation = Quaternion.Inverse(targetObject.rotation) * transform.rotation;
-        //Debug.Log("rotation values: " + initialOffsetRotation);
+        //initialOffsetRotation = transform.rotation - targetObject.rotation;
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         cameraPosition = targetObject.position + initialOffset;
         transform.position = cameraPosition;
+
+        //if(lookAtTarget)
+        //{
+        //    transform.LookAt(targetObject);
+        //}
     }
+
+    //private void LateUpdate()
+    //{
+    //    transform.LookAt(targetObject.position, Vector3.up);
+    //}
 }
