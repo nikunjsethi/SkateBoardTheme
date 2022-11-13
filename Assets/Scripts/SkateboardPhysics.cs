@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class SkateboardPhysics : MonoBehaviour
 {
+    [Header("Physics")]
     Rigidbody rb;
     public float jump = 2000;
     public float speed;
     bool canJump;
     float hInput, vInput;
     float steeringAngle;
-    Vector2 movement;
+    [Header("Wheel Components")]
     [SerializeField] private float maxSteeringAngle;
-
     [SerializeField] private WheelCollider flWheelCollider;
     [SerializeField] private WheelCollider frWheelCollider;
     [SerializeField] private WheelCollider rlWheelCollider;
@@ -24,7 +24,11 @@ public class SkateboardPhysics : MonoBehaviour
     [SerializeField] private Transform rlWheelTransform;
     [SerializeField] private Transform rrWheelTransform;
 
+    [Header("Audio Components")]
+    public AudioSource _source;
+    public AudioClip _clip;
 
+    [Header("Scripts")]
     public HealthBar health;
     // Start is called before the first frame update
     void Start()
@@ -146,6 +150,8 @@ public class SkateboardPhysics : MonoBehaviour
     {
         if(other.CompareTag("CranRaspberry"))
         {
+            _source.clip = _clip;
+            _source.Play();
             Destroy(other.gameObject);
             health.healthBar.fillAmount += 0.1f;
         }
