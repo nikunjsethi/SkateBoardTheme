@@ -51,28 +51,28 @@ public class SkateboardPhysics : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                if (canJump == true)
-                {
-                    rb.AddForce(transform.up * jump);
-                    //gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - 30, 0);
-                    Quaternion final= Quaternion.Euler(0, transform.rotation.eulerAngles.y - 30, 0);
-                    gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, final, 0.5f);
-                    canJump = false;
-                }
-            }
+            //if (Input.GetKeyDown(KeyCode.C))
+            //{
+            //    if (canJump == true)
+            //    {
+            //        rb.AddForce(transform.up * jump);
+            //        //gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - 30, 0);
+            //        Quaternion final= Quaternion.Euler(0, transform.rotation.eulerAngles.y - 30, 0);
+            //        gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, final, 0.5f);
+            //        canJump = false;
+            //    }
+            //}
 
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                if (canJump == true)
-                {
-                    rb.AddForce(transform.up * jump);
-                    Quaternion final = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 30, 0);
-                    gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, final, 0.5f);
-                    canJump = false;
-                }
-            }
+            //if (Input.GetKeyDown(KeyCode.B))
+            //{
+            //    if (canJump == true)
+            //    {
+            //        rb.AddForce(transform.up * jump);
+            //        Quaternion final = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 30, 0);
+            //        gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, final, 0.5f);
+            //        canJump = false;
+            //    }
+            //}
         }
     }
    
@@ -104,7 +104,7 @@ public class SkateboardPhysics : MonoBehaviour
         wheelTransform.position = pos;
     }
 
-    private void HandleSteering()
+    private void HandleSteering()                                   //giving steering input 
     {
         steeringAngle = maxSteeringAngle * hInput;
         flWheelCollider.steerAngle = steeringAngle;
@@ -113,28 +113,14 @@ public class SkateboardPhysics : MonoBehaviour
 
     private void HandleMotor()
     {
-        if (vInput!= 0)
-        {
-            rlWheelCollider.motorTorque = vInput * speed;
-            rrWheelCollider.motorTorque = vInput * speed;
-            Debug.Log("Moving");
-        }
-        //else if (vInput== 0)
-        //{
-        //    //rlWheelCollider.motorTorque = 0;
-        //    //rrWheelCollider.motorTorque = 0;
-        //    //rlWheelCollider.brakeTorque = Mathf.Infinity;
-        //    //rrWheelCollider.brakeTorque = Mathf.Infinity;
-        //    Debug.Log("Stopping");
-        //}
+        rlWheelCollider.motorTorque = vInput * speed;
+        rrWheelCollider.motorTorque = vInput * speed;
     }
 
-    private void GetInput()
+    private void GetInput()                                             //Using Input system to assign W/S/A/D movement
     {
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = -Input.GetAxisRaw("Vertical");
-
-        //movement = new Vector2(hInput, vInput);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -148,20 +134,12 @@ public class SkateboardPhysics : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("CranRaspberry"))
+        if(other.CompareTag("CranRaspberry"))                           //for health bar
         {
             _source.clip = _clip;
             _source.Play();
             Destroy(other.gameObject);
             health.healthBar.fillAmount += 0.1f;
-        }
-    }
-
-    void SkateBoardCheck()
-    {
-        if(gameObject.transform.eulerAngles.x>40 || gameObject.transform.eulerAngles.x < -40 || gameObject.transform.eulerAngles.z > 40 || gameObject.transform.eulerAngles.z < -40)
-        {
-            Debug.Log("Its working, time to fucking restart");
         }
     }
 }
