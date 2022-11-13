@@ -112,14 +112,14 @@ public class SkateboardPhysics : MonoBehaviour
             rrWheelCollider.motorTorque = vInput * speed;
             Debug.Log("Moving");
         }
-        else if (vInput== 0)
-        {
-            //rlWheelCollider.motorTorque = 0;
-            //rrWheelCollider.motorTorque = 0;
-            //rlWheelCollider.brakeTorque = Mathf.Infinity;
-            //rrWheelCollider.brakeTorque = Mathf.Infinity;
-            Debug.Log("Stopping");
-        }
+        //else if (vInput== 0)
+        //{
+        //    //rlWheelCollider.motorTorque = 0;
+        //    //rrWheelCollider.motorTorque = 0;
+        //    //rlWheelCollider.brakeTorque = Mathf.Infinity;
+        //    //rrWheelCollider.brakeTorque = Mathf.Infinity;
+        //    Debug.Log("Stopping");
+        //}
     }
 
     private void GetInput()
