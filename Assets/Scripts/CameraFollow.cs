@@ -21,14 +21,10 @@ public class CameraFollow : MonoBehaviour
         cameraPosition = targetObject.position + initialOffset;
         transform.position = cameraPosition;
 
+       // transform.rotation = Quaternion.Euler(targetObject.eulerAngles.x+26f, targetObject.eulerAngles.y -180, targetObject.eulerAngles.z);
         //if(lookAtTarget)
         //{
         //    transform.LookAt(targetObject);
         //}
     }
-
-    //private void LateUpdate()
-    //{
-    //    transform.LookAt(targetObject.position, Vector3.up);
-    //}
 }

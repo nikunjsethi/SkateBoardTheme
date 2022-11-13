@@ -106,14 +106,26 @@ public class SkateboardPhysics : MonoBehaviour
 
     private void HandleMotor()
     {
-        rlWheelCollider.motorTorque = vInput * speed;
-        rrWheelCollider.motorTorque = vInput * speed;
+        if (vInput!= 0)
+        {
+            rlWheelCollider.motorTorque = vInput * speed;
+            rrWheelCollider.motorTorque = vInput * speed;
+            Debug.Log("Moving");
+        }
+        else if (vInput== 0)
+        {
+            //rlWheelCollider.motorTorque = 0;
+            //rrWheelCollider.motorTorque = 0;
+            //rlWheelCollider.brakeTorque = Mathf.Infinity;
+            //rrWheelCollider.brakeTorque = Mathf.Infinity;
+            Debug.Log("Stopping");
+        }
     }
 
     private void GetInput()
     {
-        hInput = Input.GetAxis("Horizontal");
-        vInput = -Input.GetAxis("Vertical");
+        hInput = Input.GetAxisRaw("Horizontal");
+        vInput = -Input.GetAxisRaw("Vertical");
 
         //movement = new Vector2(hInput, vInput);
     }
