@@ -52,7 +52,9 @@ public class SkateboardPhysics : MonoBehaviour
                 if (canJump == true)
                 {
                     rb.AddForce(transform.up * jump);
-                    gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - 30, 0);
+                    //gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - 30, 0);
+                    Quaternion final= Quaternion.Euler(0, transform.rotation.eulerAngles.y - 30, 0);
+                    gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, final, 0.5f);
                     canJump = false;
                 }
             }
@@ -62,7 +64,8 @@ public class SkateboardPhysics : MonoBehaviour
                 if (canJump == true)
                 {
                     rb.AddForce(transform.up * jump);
-                    gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 30, 0);
+                    Quaternion final = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 30, 0);
+                    gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, final, 0.5f);
                     canJump = false;
                 }
             }
