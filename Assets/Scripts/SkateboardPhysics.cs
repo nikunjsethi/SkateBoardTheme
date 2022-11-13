@@ -35,45 +35,49 @@ public class SkateboardPhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //SkateBoardCheck();
-        if (Input.GetKeyDown(KeyCode.V))
+        if (health.gameOver == false)
         {
-        //    elapsedTime += Time.deltaTime;
-        //float percentageComplete = elapsedTime / desiredDuration;
-            if (canJump == true)                        //to make sure that the skateboard doesnt jump mid air
+            //SkateBoardCheck();
+            if (Input.GetKeyDown(KeyCode.V))
             {
-                rb.AddForce(transform.up * jump);
-                canJump = false;
+                if (canJump == true)                        //to make sure that the skateboard doesnt jump mid air
+                {
+                    rb.AddForce(transform.up * jump);
+                    canJump = false;
+                }
             }
-        }
 
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            if (canJump == true)
+            if (Input.GetKeyDown(KeyCode.C))
             {
-                rb.AddForce(transform.up * jump);
-                gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - 30, 0);
-                canJump = false;
+                if (canJump == true)
+                {
+                    rb.AddForce(transform.up * jump);
+                    gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - 30, 0);
+                    canJump = false;
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            if (canJump == true)
+            if (Input.GetKeyDown(KeyCode.B))
             {
-                rb.AddForce(transform.up * jump);
-                gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 30, 0);
-                canJump = false;
+                if (canJump == true)
+                {
+                    rb.AddForce(transform.up * jump);
+                    gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 30, 0);
+                    canJump = false;
+                }
             }
         }
     }
    
     private void FixedUpdate()
     {
-        GetInput();
-        HandleMotor();
-        HandleSteering();
-        UpdateWheels();
+        if (health.gameOver == false)
+        {
+            GetInput();
+            HandleMotor();
+            HandleSteering();
+            UpdateWheels();
+        }
     }
 
     private void UpdateWheels()
